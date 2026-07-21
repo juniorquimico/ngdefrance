@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
+
 type PageShellProps = {
   eyebrow?: string;
   title: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 export function PageShell({ eyebrow = "Fundação navegável", title, children }: PageShellProps) {

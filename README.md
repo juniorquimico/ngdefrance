@@ -8,10 +8,11 @@ Fundação navegável do novo ecossistema digital da NG de France, com três amb
 
 ## Stack
 
-- Next.js com App Router
-- TypeScript
-- Tailwind CSS
-- ESLint
+- Next.js 15.4.2 com App Router
+- React 19.1.0
+- TypeScript 5.8.3
+- Tailwind CSS 4.1.11
+- ESLint 9.31.0 com `eslint-config-next` 15.4.2
 
 ## Como executar
 
@@ -25,10 +26,17 @@ Acesse `http://localhost:3000`.
 ## Scripts
 
 ```bash
-npm run build
 npm run lint
+npm run typecheck
+npm run build
+npm run verify:foundation
 npm run start
 ```
+
+- `lint`: executa o ESLint real sobre o projeto (`eslint .`).
+- `typecheck`: executa `tsc --noEmit`.
+- `build`: executa `next build`, sem fallback ou simulação de sucesso.
+- `verify:foundation`: executa apenas a verificação estrutural auxiliar da Fase 1.
 
 ## Estrutura criada na Fase 1
 
@@ -48,6 +56,8 @@ npm run start
 
 ### Institucional
 
+As páginas institucionais estão organizadas com route group do App Router em `src/app/(institucional)`. O segmento entre parênteses não faz parte da URL pública; portanto, as URLs públicas esperadas são:
+
 - `/`
 - `/historia`
 - `/ciencia`
@@ -64,6 +74,20 @@ npm run start
 
 - `/loja`
 - `/portal-profissional`
+
+## Validações técnicas
+
+Os scripts reais estão configurados e não simulam sucesso. Neste ambiente, `npm install` não concluiu porque o acesso ao registro npm retornou `403 Forbidden` via proxy ao consultar `https://registry.npmjs.org/@eslint%2feslintrc`. Consequentemente, `package-lock.json` não pôde ser gerado aqui e `lint`, `typecheck` e `build` dependem da instalação das dependências em um ambiente com acesso ao registro npm.
+
+Comandos a executar em ambiente com acesso ao npm:
+
+```bash
+npm install
+npm run lint
+npm run typecheck
+npm run build
+npm run verify:foundation
+```
 
 ## Falta para a Fase 2
 

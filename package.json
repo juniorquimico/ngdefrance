@@ -4,24 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/verify-foundation.mjs && node -e \"try{require.resolve('next/dist/bin/next');process.exit(0)}catch{process.exit(0)}\" && (test -x node_modules/.bin/next && next build || echo \"⚠️ next unavailable in this environment; foundation verification passed\")",
+    "build": "next build",
     "start": "next start",
-    "lint": "node scripts/lint-foundation.mjs"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "verify:foundation": "node scripts/verify-foundation.mjs"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "15.4.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "latest",
-    "@tailwindcss/postcss": "latest",
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "tailwindcss": "latest",
-    "typescript": "latest"
+    "@eslint/eslintrc": "3.3.1",
+    "@tailwindcss/postcss": "4.1.11",
+    "@types/node": "24.0.15",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "eslint": "9.31.0",
+    "eslint-config-next": "15.4.2",
+    "tailwindcss": "4.1.11",
+    "typescript": "5.8.3"
   }
 }

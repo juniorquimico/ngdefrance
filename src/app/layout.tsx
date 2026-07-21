@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { brand } from "@/config/brand";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="pt-BR">
       <body className="min-h-screen antialiased">
